@@ -26,8 +26,8 @@ namespace L02P02_2022_QR_601_2021_AA_651.Controllers
 
 
 			var listadoDeLibros = (from l in _libreriaDbContext.libros
-								   join a in _libreriaDbContext.autores on l.id equals a.id
-								   join c in _libreriaDbContext.categorias on l.id equals c.id
+								   join a in _libreriaDbContext.autores on l.id_autor equals a.id
+								   join c in _libreriaDbContext.categorias on l.id_categoria equals c.id
 								   select new
 								   {
 									   nombre = l.nombre,
@@ -49,5 +49,7 @@ namespace L02P02_2022_QR_601_2021_AA_651.Controllers
 
 			return RedirectToAction("Index");
 		}
+
+
 	}
 }
